@@ -7,4 +7,10 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="Galileo6">
+      <HintPath>bin\Debug\net6.0-windows\Galileo6.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

@@ -6,7 +6,27 @@
         xmlns:local="clr-namespace:GalileoSensorApplication"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+    <Grid x:Name="WindowMain" Margin="10">
+        <ListView x:Name="LVHolder" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="18,102,590,11">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="SensorA" Width="75" DisplayMemberBinding="{Binding sensorA}"/>
+                    <GridViewColumn Header="SensorB" Width="75" DisplayMemberBinding="{Binding sensorB}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="btnLoadData" Content="Load Sensor Data" HorizontalAlignment="Left" Margin="26,75,0,0" VerticalAlignment="Top" Height="21" Width="142" Background="#FFDDDDDD" Click="btnLoadData_Click"/>
+        <ComboBox x:Name="cbxSigma" HorizontalAlignment="Left" Margin="26,47,0,0" VerticalAlignment="Top" Width="59"/>
+        <ComboBox x:Name="cbxMu" HorizontalAlignment="Left" Margin="109,47,0,0" VerticalAlignment="Top" Width="59"/>
+        <Label Content="Sigma" HorizontalAlignment="Left" Margin="34,10,0,0" VerticalAlignment="Top" Width="43" Height="31"/>
+        <Label Content="Mu" HorizontalAlignment="Left" Margin="122,10,0,0" VerticalAlignment="Top" Width="33" Height="31"/>
+        <ListBox x:Name="LBSensorA" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="374,48,276,10"/>
+        <Label Content="SENSOR A" HorizontalAlignment="Left" Margin="374,10,0,0" VerticalAlignment="Top" Width="118" Height="31" FontFamily="Cascadia Mono" FontSize="22"/>
+        <ListBox x:Name="LBSensorB" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="652,47,10,11"/>
+        <Label Content="SENSOR B" HorizontalAlignment="Left" Margin="652,10,0,0" VerticalAlignment="Top" Width="118" Height="31" FontFamily="Cascadia Mono" FontSize="22"/>
+        <Label Content="Search Item:" HorizontalAlignment="Left" Margin="206,44,0,0" VerticalAlignment="Top" Width="78" Height="31"/>
+        <TextBox x:Name="tbxSearchItemA" HorizontalAlignment="Left" Margin="289,51,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="80"/>
+        <Button x:Name="btnSelectionSort" Content="Selection Sort" HorizontalAlignment="Left" Margin="206,103,0,0" VerticalAlignment="Top" Height="21" Width="163" Background="#FFDDDDDD" Click="btnSelectionSort_Click"/>
+        <TextBox x:Name="tbxSelectionSortTime" HorizontalAlignment="Left" Margin="206,129,0,0" TextWrapping="Wrap" Text="TIME&#xD;&#xA;SWAPS" VerticalAlignment="Top" Width="163" Height="34" TextChanged="tbxSelectionSortTime_TextChanged"/>
     </Grid>
 </Window>
