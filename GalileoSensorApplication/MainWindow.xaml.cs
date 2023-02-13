@@ -102,14 +102,15 @@ namespace GalileoSensorApplication
             }
         }
 
+        // 4.7
         private bool SelectionSort(LinkedList<double> LL)
         {
-            
+            Stopwatch sw = new Stopwatch();  // stop watch to count how long it takes to sort.
             bool fin = true;
             int min = 0;
-            int swaps = 0;
             int max = NumberOfNodes(LL);
-            Stopwatch sw = Stopwatch.StartNew();
+            sw.Reset();
+            sw.Start();
             for (int i = 0; i < max; i++)
             {
                 min = i;
@@ -127,14 +128,15 @@ namespace GalileoSensorApplication
                 var temp = currentMin.Value;
                 currentMin.Value = currentI.Value;
                 currentI.Value = temp;
-                swaps++;
             }
             sw.Stop();
-            tbxSelectionSortTime.Text = sw.ElapsedTicks.ToString() + " Ticks.\n" + swaps.ToString() + " Swaps.";
+            tbxSelectionSortTime.Text = sw.ElapsedTicks.ToString() + " Ticks.";
             return fin;
 
         }
 
+
+        // 4.7
         private void btnSelectionSort_Click(object sender, RoutedEventArgs e)
         {
             SelectionSort(sensorAList);
@@ -144,6 +146,41 @@ namespace GalileoSensorApplication
         private void tbxSelectionSortTime_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        // 4.8
+        private bool InsertionSort(LinkedList<double> LL)
+        {
+            Stopwatch sw = Stopwatch.StartNew();
+            sw.Reset();
+            sw.Start();
+            bool swapped = true;
+            int max = NumberOfNodes(LL);
+            for (int i = 0; i < max - 1; i++)
+            {
+                for (int j = i + 1; j > 0; j--)
+                {
+                    if (LL.ElementAt(j  - 1) > LL.ElementAt(j))
+                    {
+                        LinkedListNode<double> current = LL.Find(LL.ElementAt(j));
+                        LinkedListNode<double> previous = LL.Find(LL.ElementAt(j - 1));
+                        var temp = previous.Value;
+                        previous.Value = current.Value;
+                        current.Value = temp;
+                    }
+                }
+            }
+            sw.Stop();
+            tbxInsertionSortTime.Text = sw.ElapsedTicks.ToString() + " Ticks.";
+            return swapped;
+
+        }
+
+        // 4.8
+        private void btnInsertionSort_Click(object sender, RoutedEventArgs e)
+        {
+            InsertionSort(sensorAList);
+            DisplayListBoxData(LBSensorA, sensorAList);
         }
     }
 }
