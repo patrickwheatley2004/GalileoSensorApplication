@@ -1,20 +1,10 @@
-﻿using System;
+﻿using Galileo6;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Galileo6;
 // Patrick Wheatley
 // 30053724
 // 6/02/2023
@@ -45,7 +35,7 @@ namespace GalileoSensorApplication
             {
                 cbx.Items.Add(i.ToString());
             }
-            cbx.Text= dft.ToString();
+            cbx.Text = dft.ToString();
         }
 
         // 4.2
@@ -131,6 +121,7 @@ namespace GalileoSensorApplication
             }
             sw.Stop();
             tbxSelectionSortTime.Text = sw.ElapsedTicks.ToString() + " Ticks.";
+            DisplayListBoxData(LBSensorA, sensorAList);
             return fin;
 
         }
@@ -140,7 +131,7 @@ namespace GalileoSensorApplication
         private void btnSelectionSort_Click(object sender, RoutedEventArgs e)
         {
             SelectionSort(sensorAList);
-            DisplayListBoxData(LBSensorA, sensorAList);
+            
         }
 
         private void tbxSelectionSortTime_TextChanged(object sender, TextChangedEventArgs e)
@@ -151,7 +142,7 @@ namespace GalileoSensorApplication
         // 4.8
         private bool InsertionSort(LinkedList<double> LL)
         {
-            Stopwatch sw = Stopwatch.StartNew();
+            Stopwatch sw = Stopwatch.StartNew(); // Stop watch so measure how long it takes.
             sw.Reset();
             sw.Start();
             bool swapped = true;
@@ -160,7 +151,7 @@ namespace GalileoSensorApplication
             {
                 for (int j = i + 1; j > 0; j--)
                 {
-                    if (LL.ElementAt(j  - 1) > LL.ElementAt(j))
+                    if (LL.ElementAt(j - 1) > LL.ElementAt(j))
                     {
                         LinkedListNode<double> current = LL.Find(LL.ElementAt(j));
                         LinkedListNode<double> previous = LL.Find(LL.ElementAt(j - 1));
@@ -172,6 +163,7 @@ namespace GalileoSensorApplication
             }
             sw.Stop();
             tbxInsertionSortTime.Text = sw.ElapsedTicks.ToString() + " Ticks.";
+            DisplayListBoxData(LBSensorA, sensorAList);
             return swapped;
 
         }
@@ -180,7 +172,109 @@ namespace GalileoSensorApplication
         private void btnInsertionSort_Click(object sender, RoutedEventArgs e)
         {
             InsertionSort(sensorAList);
-            DisplayListBoxData(LBSensorA, sensorAList);
+            
+        }
+
+        // 4.9
+        private int BinarySearchIterative(LinkedList<double> LL, double SearchValue, int Minimum, int Maximum)
+        {
+            Stopwatch sw = new Stopwatch();
+            sw.Reset();
+            sw.Start();
+            while (Minimum <= Maximum - 1)
+            {
+                int mid = (Minimum + Maximum) / 2;
+
+                if (SearchValue == LL.ElementAt(mid))
+                {
+                    sw.Stop();
+                    tbxBinarySearchIterative.Text = sw.ElapsedTicks.ToString() + " Ticks.";
+                    return mid;
+                }
+                else if (SearchValue < LL.ElementAt(mid))
+                {
+                    Maximum = mid - 1;
+                }
+                else
+                {
+                    Minimum = mid + 1;
+                }
+
+            }
+            sw.Stop();
+            tbxBinarySearchIterative.Text = sw.ElapsedTicks.ToString() + " Ticks.";
+            return Minimum;
+        }
+
+        // 4.9
+        private void btnBinarySearchIterative_Click(object sender, RoutedEventArgs e)
+        {
+            if (SelectionSort(sensorAList))
+            {
+                try
+                {
+                    double searchItem = Double.Parse(tbxSearchItemA.Text);
+                    int value = BinarySearchIterative(sensorAList, searchItem, 0, NumberOfNodes(sensorAList));
+                    MessageBox.Show("Your search was found at index " + value.ToString() + " for Sensor A.", "Search Found.", MessageBoxButton.OK, MessageBoxImage.Information);
+                    LBSensorA.SelectedIndex = value;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Please enter in a valid search number.", "Searching", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+        // 4.10
+        private int BinarySearchRecursive(LinkedList<double> LL, double SearchValue, int Minimum, int Maximum )
+        {
+
+            if (Minimum< Maximum - 1)
+            {
+                int mid = (Minimum + Maximum) / 2;
+                if (SearchValue == LL.ElementAt(mid))
+                {
+                    return mid;
+                }
+                else if (SearchValue < LL.ElementAt(mid))
+                {
+                    return BinarySearchRecursive(LL, SearchValue, Minimum, mid - 1);
+                }
+                else
+                {
+                    return BinarySearchRecursive(LL, SearchValue, mid + 1, Maximum);
+                }
+            }
+            return Minimum;
+        }
+
+        // 4.10
+        private void btnBinarySearchRecursive_Click(object sender, RoutedEventArgs e)
+        {
+            if (SelectionSort(sensorAList))
+            {
+                try
+                {
+                    double searchItem = Double.Parse(tbxSearchItemA.Text);
+                    Stopwatch sw = new Stopwatch();
+                    sw.Reset();
+                    sw.Start();
+                    int value = BinarySearchRecursive(sensorAList, searchItem, 0, NumberOfNodes(sensorAList));
+                    sw.Stop();
+                    tbxBinarySearchRecursive.Text = sw.ElapsedTicks.ToString() + " Ticks.";
+                    MessageBox.Show("Your search was found at index " + value.ToString() + " for Sensor A.", "Search Found.", MessageBoxButton.OK, MessageBoxImage.Information);
+                    LBSensorA.SelectedIndex = value;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Please enter in a valid search number.", "Searching", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+        private void tbxSearchItemA_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            tbxSearchItemA.Clear();
         }
     }
 }

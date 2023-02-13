@@ -20,15 +20,19 @@
         <ComboBox x:Name="cbxMu" HorizontalAlignment="Left" Margin="109,47,0,0" VerticalAlignment="Top" Width="59"/>
         <Label Content="Sigma" HorizontalAlignment="Left" Margin="34,10,0,0" VerticalAlignment="Top" Width="43" Height="31"/>
         <Label Content="Mu" HorizontalAlignment="Left" Margin="122,10,0,0" VerticalAlignment="Top" Width="33" Height="31"/>
-        <ListBox x:Name="LBSensorA" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="374,48,276,10"/>
+        <ListBox x:Name="LBSensorA" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="374,48,276,10" SelectionMode="Multiple"/>
         <Label Content="SENSOR A" HorizontalAlignment="Left" Margin="374,10,0,0" VerticalAlignment="Top" Width="118" Height="31" FontFamily="Cascadia Mono" FontSize="22"/>
-        <ListBox x:Name="LBSensorB" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="652,47,10,11"/>
+        <ListBox x:Name="LBSensorB" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="652,47,10,11" SelectionMode="Multiple"/>
         <Label Content="SENSOR B" HorizontalAlignment="Left" Margin="652,10,0,0" VerticalAlignment="Top" Width="118" Height="31" FontFamily="Cascadia Mono" FontSize="22"/>
         <Label Content="Search Item:" HorizontalAlignment="Left" Margin="206,44,0,0" VerticalAlignment="Top" Width="78" Height="31"/>
-        <TextBox x:Name="tbxSearchItemA" HorizontalAlignment="Left" Margin="289,51,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="tbxSearchItemA" HorizontalAlignment="Left" Margin="289,51,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="80" MouseLeftButtonDown="tbxSearchItemA_MouseLeftButtonDown"/>
         <Button x:Name="btnSelectionSort" Content="Selection Sort" HorizontalAlignment="Left" Margin="206,103,0,0" VerticalAlignment="Top" Height="21" Width="163" Background="#FFDDDDDD" Click="btnSelectionSort_Click"/>
         <TextBox x:Name="tbxSelectionSortTime" HorizontalAlignment="Left" Margin="206,129,0,0" TextWrapping="Wrap" Text="TIME" VerticalAlignment="Top" Width="163" Height="20" TextChanged="tbxSelectionSortTime_TextChanged" IsEnabled="False"/>
         <Button x:Name="btnInsertionSort" Content="Insertion Sort" HorizontalAlignment="Left" Margin="206,161,0,0" VerticalAlignment="Top" Height="21" Width="163" Background="#FFDDDDDD" Click="btnInsertionSort_Click"/>
         <TextBox x:Name="tbxInsertionSortTime" HorizontalAlignment="Left" Margin="206,187,0,0" TextWrapping="Wrap" Text="TIME" VerticalAlignment="Top" Width="163" Height="20" TextChanged="tbxSelectionSortTime_TextChanged" IsEnabled="False"/>
+        <Button x:Name="btnBinarySearchIterative" Content="Binary Search Iterative" HorizontalAlignment="Left" Margin="206,217,0,0" VerticalAlignment="Top" Height="21" Width="163" Background="#FFDDDDDD" Click="btnBinarySearchIterative_Click"/>
+        <TextBox x:Name="tbxBinarySearchIterative" HorizontalAlignment="Left" Margin="206,243,0,0" TextWrapping="Wrap" Text="TIME" VerticalAlignment="Top" Width="163" Height="20" TextChanged="tbxSelectionSortTime_TextChanged" IsEnabled="False"/>
+        <Button x:Name="btnBinarySearchRecursive" Content="Binary Search Recursive" HorizontalAlignment="Left" Margin="206,274,0,0" VerticalAlignment="Top" Height="21" Width="163" Background="#FFDDDDDD" Click="btnBinarySearchRecursive_Click"/>
+        <TextBox x:Name="tbxBinarySearchRecursive" HorizontalAlignment="Left" Margin="206,300,0,0" TextWrapping="Wrap" Text="TIME" VerticalAlignment="Top" Width="163" Height="20" TextChanged="tbxSelectionSortTime_TextChanged" IsEnabled="False"/>
     </Grid>
 </Window>
