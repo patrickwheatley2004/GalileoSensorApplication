@@ -25,7 +25,7 @@
         <ListBox x:Name="LBSensorB" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="630,50,23,10" SelectionMode="Multiple"/>
         <Label Content="SENSOR B" HorizontalAlignment="Left" Margin="630,10,0,0" VerticalAlignment="Top" Width="118" Height="31" FontFamily="Cascadia Mono" FontSize="22"/>
         <Label Content="Search Item:" HorizontalAlignment="Left" Margin="187,40,0,0" VerticalAlignment="Top" Width="78" Height="31"/>
-        <TextBox x:Name="tbxSearchItemA" HorizontalAlignment="Left" Margin="270,47,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="63" MouseEnter="tbxSearchItemA_MouseEnter"/>
+        <TextBox x:Name="tbxSearchItemA" HorizontalAlignment="Left" Margin="270,47,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="63" MouseEnter="tbxSearchItemA_MouseEnter" TextChanged="tbxSearchItemA_TextChanged"/>
         <Button x:Name="btnSelectionSort" Content="Selection Sort" HorizontalAlignment="Left" Margin="197,107,0,0" VerticalAlignment="Top" Height="21" Width="136" Background="#FFDDDDDD" Click="btnSelectionSort_Click"/>
         <TextBox x:Name="tbxSelectionSortTime" HorizontalAlignment="Left" Margin="197,133,0,0" TextWrapping="Wrap" Text="TIME" VerticalAlignment="Top" Width="136" Height="20" TextChanged="tbxSelectionSortTime_TextChanged" IsEnabled="False"/>
         <Button x:Name="btnInsertionSort" Content="Insertion Sort" HorizontalAlignment="Left" Margin="197,165,0,0" VerticalAlignment="Top" Height="21" Width="136" Background="#FFDDDDDD" Click="btnInsertionSort_Click"/>
@@ -35,7 +35,7 @@
         <Button x:Name="btnBinarySearchRecursive" Content="Binary Search Recursive" HorizontalAlignment="Left" Margin="197,278,0,0" VerticalAlignment="Top" Height="21" Width="136" Background="#FFDDDDDD" Click="btnBinarySearchRecursive_Click"/>
         <TextBox x:Name="tbxBinarySearchRecursive" HorizontalAlignment="Left" Margin="197,304,0,0" TextWrapping="Wrap" Text="TIME" VerticalAlignment="Top" Width="136" Height="20" TextChanged="tbxSelectionSortTime_TextChanged" IsEnabled="False"/>
         <Label Content="Search Item:" HorizontalAlignment="Left" Margin="479,42,0,0" VerticalAlignment="Top" Width="78" Height="31"/>
-        <TextBox x:Name="tbxSearchItemB" HorizontalAlignment="Left" Margin="562,49,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="63" MouseEnter="tbxSearchItemA_MouseEnter"/>
+        <TextBox x:Name="tbxSearchItemB" HorizontalAlignment="Left" Margin="562,49,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="63" MouseEnter="tbxSearchItemA_MouseEnter" TextChanged="tbxSearchItemB_TextChanged"/>
         <Button x:Name="btnSelectionSortB" Content="Selection Sort" HorizontalAlignment="Left" Margin="484,107,0,0" VerticalAlignment="Top" Height="21" Width="136" Background="#FFDDDDDD" Click="btnSelectionSortB_Click"/>
         <TextBox x:Name="tbxSelectionSortTimeB" HorizontalAlignment="Left" Margin="484,133,0,0" TextWrapping="Wrap" Text="TIME" VerticalAlignment="Top" Width="136" Height="20" TextChanged="tbxSelectionSortTime_TextChanged" IsEnabled="False"/>
         <Button x:Name="btnInsertionSortB" Content="Insertion Sort" HorizontalAlignment="Left" Margin="484,165,0,0" VerticalAlignment="Top" Height="21" Width="136" Background="#FFDDDDDD" Click="btnInsertionSortB_Click"/>
