@@ -102,7 +102,7 @@ namespace GalileoSensorApplication
             bool fin = true;
             int min = 0;
             int max = NumberOfNodes(LL);
-            for (int i = 0; i < max - 1; i++)
+            for (int i = 0; i < max; i++)
             {
                 min = i;
                 for (int j = i + 1; j < max; j++) 
