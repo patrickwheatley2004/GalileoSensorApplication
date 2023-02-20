@@ -47,7 +47,7 @@ namespace GalileoSensorApplication
             ReadData readData = new ReadData(); // Instance of "ReadData" from Galileo6.DLL
             sensorAList.Clear();
             sensorBList.Clear();
-            Random randy = new Random();
+            
             for (int i = 0; i < MaxSize; i++) // A for loop to populate the LinkedLists with the data.
             {
 
@@ -102,7 +102,7 @@ namespace GalileoSensorApplication
             bool fin = true;
             int min = 0;
             int max = NumberOfNodes(LL);
-            for (int i = 0; i < max; i++)
+            for (int i = 0; i < max - 1; i++)
             {
                 min = i;
                 for (int j = i + 1; j < max; j++) 
